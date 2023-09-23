@@ -9,22 +9,27 @@ public class MergeSort {
         return result;
     }
 
-
-    // REDO MERGE FUNCTION - It's breaking
+    // REVIEW MULTIPLE TIMES
     public int[] merge(int[] first, int[] second) {
         int[] result = new int[first.length + second.length];
         int firstPtr = 0;
         int secondPtr = 0;
         int count = 0;
-        while (!(firstPtr == first.length && secondPtr == second.length)) {
-            if (firstPtr != first.length && secondPtr != second.length && first[firstPtr] <= second[secondPtr]) {
-                result[count] = first[firstPtr];
-                firstPtr++;
+        // For the minimum number of terms out of the two arrays, merge the two arrays
+        while (firstPtr < first.length && secondPtr < second.length) {
+            if (first[firstPtr] <= second[secondPtr]) {
+                result[count++] = first[firstPtr++];
             } else {
-                result[count] = second[secondPtr];
-                secondPtr++;
+                result[count++] = second[secondPtr++];
             }
-            count++;
+        }
+        // For the remaining elements(if any) concatenate the first array
+        while (firstPtr < first.length) {
+            result[count++] = first[firstPtr++];
+        }
+        // For the remaining elements(if any) concatenate the second array
+        while(secondPtr < second.length) {
+            result[count++] = second[secondPtr++];
         }
         return result;
     }
