@@ -1,6 +1,7 @@
 package sorting.merge_sort;
 
 public class MergeSort {
+    // Get the subarray as a new array
     public int[] slice(int[] arr, int start, int end) {
         int[] result = new int[end-start];
         for (int i = 0; i < end - start; i++) {
@@ -23,11 +24,11 @@ public class MergeSort {
                 result[count++] = second[secondPtr++];
             }
         }
-        // For the remaining elements(if any) concatenate the first array
+        // For the remaining elements(if any) concatenate the first array to result
         while (firstPtr < first.length) {
             result[count++] = first[firstPtr++];
         }
-        // For the remaining elements(if any) concatenate the second array
+        // For the remaining elements(if any) concatenate the second array to result
         while(secondPtr < second.length) {
             result[count++] = second[secondPtr++];
         }
